@@ -14,28 +14,48 @@ import ShoppingHome from "./pages/shopping-view/home";
 import ShoppingListing from "./pages/shopping-view/listing";
 import ShoppingCheckout from "./pages/shopping-view/checkout";
 import ShoppingAccount from "./pages/shopping-view/account";
+import CheckAuth from "./components/common/check-auth";
+import UnauthPage from "./pages/unauth-page";
 
 function App() {
+
+  // testing check auth 
+  const isAuthenticated = false
+  const user = null
+
   return (
     <div className="flex flex-col overflow-hidden bg-white">
       <Routes>
-        <Route path="/auth" element={<AuthLayout />}>
+        <Route path="/auth" element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <AuthLayout />
+          </CheckAuth>
+        }>
           <Route path="login" element={<AuthLogin />} />
           <Route path="register" element={<AuthRegister />} />
         </Route>
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin" element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+            <AdminLayout />
+          </CheckAuth>
+        }>
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="products" element={<AdminProducts />} />
           <Route path="orders" element={<AdminOrders />} />
           <Route path="features" element={<AdminFeatures />} />
         </Route>
-        <Route path="/shop" element={<ShoPPingLayout />}>
+        <Route path="/shop" element={
+          <CheckAuth isAuthenticated={isAuthenticated} user={user} >
+            <ShoPPingLayout />
+          </CheckAuth>
+        }>
           <Route path="home" element={<ShoppingHome />} />
           <Route path="listing" element={<ShoppingListing />} />
           <Route path="checkout" element={<ShoppingCheckout />} />
           <Route path="accoutn" element={<ShoppingAccount />} />
         </Route>
         <Route path="*" element={<NotFound />}></Route>
+        <Route path="/unauth-page" element={<UnauthPage />}></Route>
       </Routes>
     </div>
   );
