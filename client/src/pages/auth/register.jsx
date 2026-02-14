@@ -21,10 +21,10 @@ const AuthRegister = () => {
         e.preventDefault()
         dispatch(registerUser(formData)).then((data) => {
             if (data?.payload?.success) {
-                toast.success("Register Successful");
+                toast.success(data?.payload?.message || "Register Successful");
                 navigate("/auth/login");
             } else {
-                toast.error("Register Failed");
+                toast.error(data?.payload?.message || "Register Failed");
             }
             console.log(data);
         })
