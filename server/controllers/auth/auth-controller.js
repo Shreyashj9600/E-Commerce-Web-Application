@@ -51,6 +51,7 @@ const loginUser = async (req, res) => {
             password,
             checkUser.password,
         );
+
         if (!checkPasswordMatch)
             return res.json({
                 success: false,
@@ -85,7 +86,17 @@ const loginUser = async (req, res) => {
     }
 };
 
+// logout user
+const logout = (req, res) => {
+    res.clearCookie('token').json({
+        success: true,
+        message: "Logged out successfully"
+    })
+}
+
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    logout
 };
