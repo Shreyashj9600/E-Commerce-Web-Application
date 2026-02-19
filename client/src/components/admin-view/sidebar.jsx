@@ -1,8 +1,16 @@
+import { ChartNoAxesCombined } from "lucide-react";
+import { Fragment } from "react";
+
 function AdminSideBar() {
     return (
-        <div>
-            Admin SideBar
-        </div>
+        <Fragment>
+            <aside className="hidden w-64 flex-col border-r bg-background p-6 lg:flex">
+                <div className="flex cursor-pointer items-center gap-2">
+                    <ChartNoAxesCombined size={30}/>
+                    <h1 className="text-xl font-extrabold">Admin Panel</h1>
+                </div>
+            </aside>
+        </Fragment>
     );
 }
 

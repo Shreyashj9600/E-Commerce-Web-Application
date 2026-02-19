@@ -3,7 +3,7 @@ function AdminFeatures() {
         <div>
             admin Features
         </div>
-      );
+    );
 }
 
 export default AdminFeatures;
