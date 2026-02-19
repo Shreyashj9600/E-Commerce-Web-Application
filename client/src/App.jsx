@@ -19,18 +19,21 @@ import UnauthPage from "./pages/unauth-page";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { checkAuth } from "./store/auth-slice";
+import { Skeleton } from "@/components/ui/skeleton"
 
 function App() {
   // testing check auth 
   // const isAuthenticated = false
   // const user = null
 
-  const { user, isAuthenticated } = useSelector(state => state.auth)
+  const { user, isAuthenticated, isLoading } = useSelector(state => state.auth)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(checkAuth())
   }, [dispatch])
+
+  if (isLoading) return <Skeleton className="min-h-screen w-screen bg-gray-300 animate-pulse" />
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">

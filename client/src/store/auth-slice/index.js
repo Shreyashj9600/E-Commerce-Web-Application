@@ -4,7 +4,7 @@ import { fromTheme } from "tailwind-merge";
 
 const initialState = {
     isAuthenticated: false,
-    isLoading: false,
+    isLoading: true,
     user: null,
 };
 
