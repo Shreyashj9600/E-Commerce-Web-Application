@@ -1,3 +1,5 @@
+ 
+
 export const registerFormControls = [
     {
         name: 'userName',
@@ -31,7 +33,7 @@ export const loginFormControls = [
         placeholder: 'Enter your Email',
         componentType: 'input',
         type: 'email',
-         autoComplete: "username"
+        autoComplete: "username"
     },
     {
         name: 'password',
@@ -39,6 +41,8 @@ export const loginFormControls = [
         placeholder: 'Enter your password',
         componentType: 'input',
         type: 'password',
-         autoComplete: "current-password"
+        autoComplete: "current-password"
     },
 ]
+
+
