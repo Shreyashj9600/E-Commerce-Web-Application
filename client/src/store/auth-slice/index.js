@@ -100,7 +100,7 @@ const authSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(checkAuth.fulfilled, (state, action) => {
-                console.log("LOGIN PAYLOAD:", action.payload);
+                // console.log("LOGIN PAYLOAD:", action.payload);
 
                 state.isLoading = false;
                 state.user = action.payload.success ? action.payload.user : null;
