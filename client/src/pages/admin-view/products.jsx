@@ -8,6 +8,7 @@ import {
 } from "../../components/ui/sheet";
 import CommonForm from "../../components/common/form";
 import { addProductFormElements } from "../../config";
+import ProductImageUpload from "../../components/admin-view/image-upload";
 
 const initialFormData = {
     image: null,
@@ -25,6 +26,9 @@ function AdminProducts() {
         useState(false);
 
     const [formData, setFormData] = useState(initialFormData);
+    const [imageFile, setImageFile] = useState(null)
+    const [uploadedImageUrl, setUploadedImageUrl] = useState("")
+
 
     function onSubmit() { }
 
@@ -42,21 +46,21 @@ function AdminProducts() {
                     setOpenCreateProductsDialog(false);
                 }}
             >
-                <SheetContent side="right" className="overflow-hidden">
+                <SheetContent side="right" className="overflow-auto">
                     <SheetHeader>
                         <SheetTitle>Add New Product</SheetTitle>
                     </SheetHeader>
-                    <div className="py-6 ">
+                    <ProductImageUpload file={imageFile} setFile={setImageFile} />
+                    <div className="py-6">
                         <CommonForm
                             formData={formData}
                             setFormData={setFormData}
-                            buttonText="Add "
+                            buttonText="Add"
                             onSubmit={onSubmit}
                             formControls={addProductFormElements}
                         />
                     </div>
                 </SheetContent>
-
             </Sheet>
         </Fragment>
     );
