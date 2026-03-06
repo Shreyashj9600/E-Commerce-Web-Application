@@ -28,8 +28,13 @@ function AdminProducts() {
     const [formData, setFormData] = useState(initialFormData);
     const [imageFile, setImageFile] = useState(null);
     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+    const [imageLoadingState, setImageLoadingState] = useState(false);
+    const [currentEditedId, setCurrentEditedId] = useState(null);
 
     function onSubmit() { }
+
+    console.log("formData", formData);
+    
 
     return (
         <Fragment>
@@ -54,6 +59,7 @@ function AdminProducts() {
                         setImageFile={setImageFile}
                         uploadedImageUrl={uploadedImageUrl}
                         setUploadedImageUrl={setUploadedImageUrl}
+                        setImageLoadingState={setImageLoadingState}
                     />
                     <div className="py-6">
                         <CommonForm
