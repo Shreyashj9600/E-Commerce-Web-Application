@@ -67,8 +67,8 @@ const loginUser = async (req, res) => {
             "CLIENT_SECRET_KEY",
             { expiresIn: "60m" },
         );
-console.log("Cookies:", req.cookies);
-console.log("Token:", req.cookies.token);
+        console.log("Cookies:", req.cookies);
+        console.log("Token:", req.cookies.token);
 
         res.cookie("token", token, {
             httpOnly: true,
