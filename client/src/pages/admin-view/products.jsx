@@ -112,6 +112,7 @@ function AdminProducts() {
                 {productList && productList.length > 0
                     ? productList.map((productItem) => (
                         <AdminProductTile
+                            // key={productItem?._id}
                             setCurrentEditedId={setCurrentEditedId}
                             product={productItem}
                             setOpenCreateProductsDialog={setOpenCreateProductsDialog}
