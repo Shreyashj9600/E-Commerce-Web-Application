@@ -16,6 +16,7 @@ function CommonForm({
     setFormData,
     onSubmit,
     buttonText,
+    isBtnDisabled
 }) {
     function renderInputsByComponentType(getControlItem) {
 
@@ -110,7 +111,7 @@ function CommonForm({
                     </div>
                 ))}
             </div>
-            <Button type="submit" className="mt-2 w-full">
+            <Button disabled={isBtnDisabled} type="submit" className="mt-2 w-full">
                 {buttonText || "submit"}
             </Button>
         </form>
