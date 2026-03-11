@@ -64,7 +64,7 @@ function App() {
           <Route path="home" element={<ShoppingHome />} />
           <Route path="listing" element={<ShoppingListing />} />
           <Route path="checkout" element={<ShoppingCheckout />} />
-          <Route path="accoutn" element={<ShoppingAccount />} />
+          <Route path="account" element={<ShoppingAccount />} />
         </Route>
         <Route path="*" element={<NotFound />}></Route>
         <Route path="/unauth-page" element={<UnauthPage />}></Route>
