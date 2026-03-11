@@ -38,7 +38,7 @@ const addProduct = async (req, res) => {
         console.log(averageReview, "averageReview");
 
         const newlyCreatedProduct = new Product({
-            image,
+            image ,
             title,
             description,
             category,
