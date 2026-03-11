@@ -1,7 +1,9 @@
+import ProductFilter from "../../components/shopping-view/filter";
+
 function ShoppingListing() {
     return (
         <div>
-            shopping view ShoppingListing
+            <ProductFilter />
         </div>
     );
 }

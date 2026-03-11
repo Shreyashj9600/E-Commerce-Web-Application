@@ -3,7 +3,7 @@ import {
     Link,
     useNavigate,
 } from "react-router-dom";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { useDispatch, useSelector } from "react-redux";
 import { Label } from "../ui/label";
@@ -125,7 +125,7 @@ function HeaderRightContent() {
 
 function ShoppingHeader() {
     const { isAuthenticated, user } = useSelector((state) => state.auth);
-    console.log('user', user);
+    // console.log('user', user);
 
     return (
         <header className="sticky top-0 z-40 w-full border-b bg-background">
