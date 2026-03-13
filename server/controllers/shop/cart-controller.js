@@ -212,7 +212,7 @@ const deleteCartItem = async (req, res) => {
       salePrice: item.productId ? item.productId.salePrice : null,
       quantity: item.quantity,
     }));
-
+                          
     res.status(200).json({
       success: true,
       data: {
