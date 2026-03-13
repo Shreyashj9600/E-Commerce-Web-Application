@@ -5,20 +5,22 @@ import { Dialog, DialogContent } from "../ui/dialog";
 import { Separator } from "../ui/separator";
 import { Input } from "../ui/input";
 import { useDispatch, useSelector } from "react-redux";
-// import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
+import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
 // import { useToast } from "../ui/use-toast";
 import { setProductDetails } from "@/store/shop/products-slice";
 import { Label } from "../ui/label";
 // import StarRatingComponent from "../common/star-rating";
 import { useEffect, useState } from "react";
 // import { addReview, getReviews } from "@/store/shop/review-slice";
+import { toast } from "sonner";
+
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const [reviewMsg, setReviewMsg] = useState("");
   const [rating, setRating] = useState(0);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  //   const { cartItems } = useSelector((state) => state.shopCart);
+  const { cartItems } = useSelector((state) => state.shopCart);
   //   const { reviews } = useSelector((state) => state.shopReview);
 
   //   const { toast } = useToast();
@@ -57,9 +59,9 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
     ).then((data) => {
       if (data?.payload?.success) {
         dispatch(fetchCartItems(user?.id));
-        toast({
-          title: "Product is added to cart",
-        });
+        toast.success(
+          "Product is added to cart",
+        );
       }
     });
   }
