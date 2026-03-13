@@ -1,5 +1,5 @@
 import ProductFilter from "@/components/shopping-view/filter";
-// import ProductDetailsDialog from "@/components/shopping-view/product-details";
+import ProductDetailsDialog from "@/components/shopping-view/product-details";
 import ShoppingProductTile from "@/components/shopping-view/product-tile";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,6 +21,7 @@ import { useControllableState } from "radix-ui/internal";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+// import ProductDetailsDialog from "../../components/shopping-view/product-details";
 // import { useEffect, useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { useSearchParams } from "react-router-dom";
@@ -199,11 +200,11 @@ function ShoppingListing() {
                         : null}
                 </div>
             </div>
-            {/* <ProductDetailsDialog
+            <ProductDetailsDialog
                 open={openDetailsDialog}
                 setOpen={setOpenDetailsDialog}
                 productDetails={productDetails}
-            /> */}
+            />
         </div>
     );
 }
