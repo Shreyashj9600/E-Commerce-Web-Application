@@ -7,7 +7,7 @@ import { Input } from "../ui/input";
 import { useDispatch, useSelector } from "react-redux";
 // import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
 // import { useToast } from "../ui/use-toast";
-// import { setProductDetails } from "@/store/shop/products-slice";
+import { setProductDetails } from "@/store/shop/products-slice";
 import { Label } from "../ui/label";
 // import StarRatingComponent from "../common/star-rating";
 import { useEffect, useState } from "react";
@@ -169,25 +169,25 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
             <div className="grid gap-6">
               {/* {reviews && reviews.length > 0 ? (
                 reviews.map((reviewItem) => ( */}
-                  <div className="flex gap-4">
-                    <Avatar className="w-10 h-10 border">
-                      <AvatarFallback>
-                        {/* {reviewItem?.userName[0].toUpperCase()} */}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="grid gap-1">
-                      <div className="flex items-center gap-2">
-                        {/* <h3 className="font-bold">{reviewItem?.userName}</h3> */}
-                      </div>
-                      <div className="flex items-center gap-0.5">
-                        {/* <StarRatingComponent rating={reviewItem?.reviewValue} /> */}
-                      </div>
-                      <p className="text-muted-foreground">
-                        {/* {reviewItem.reviewMessage} */}
-                      </p>
-                    </div>
+              <div className="flex gap-4">
+                <Avatar className="w-10 h-10 border">
+                  <AvatarFallback>
+                    {/* {reviewItem?.userName[0].toUpperCase()} */}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="grid gap-1">
+                  <div className="flex items-center gap-2">
+                    {/* <h3 className="font-bold">{reviewItem?.userName}</h3> */}
                   </div>
-                {/* ))
+                  <div className="flex items-center gap-0.5">
+                    {/* <StarRatingComponent rating={reviewItem?.reviewValue} /> */}
+                  </div>
+                  <p className="text-muted-foreground">
+                    {/* {reviewItem.reviewMessage} */}
+                  </p>
+                </div>
+              </div>
+              {/* ))
               ) : (
                 <h1>No Reviews</h1>
               )} */}

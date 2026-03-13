@@ -10,8 +10,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 // import { useToast } from "@/components/ui/use-toast";
+import { toast } from "sonner";
 import { sortOptions } from "@/config";
-// import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
+import { addToCart, fetchCartItems } from "@/store/shop/cart-slice";
 import {
     fetchAllFilteredProducts,
     fetchProductDetails,
@@ -47,7 +48,7 @@ function ShoppingListing() {
     const { productList, productDetails } = useSelector(
         (state) => state.shopProducts
     );
-    // const { cartItems } = useSelector((state) => state.shopCart);
+    const { cartItems } = useSelector((state) => state.shopCart);
     const { user } = useSelector((state) => state.auth);
     const [filters, setFilters] = useState({});
     const [sort, setSort] = useState(null);
@@ -90,7 +91,7 @@ function ShoppingListing() {
     }
 
     function handleAddtoCart(getCurrentProductId, getTotalStock) {
-        console.log(cartItems);
+        console.log("cartItems",cartItems);
         let getCartItems = cartItems.items || [];
 
         if (getCartItems.length) {
@@ -119,9 +120,9 @@ function ShoppingListing() {
         ).then((data) => {
             if (data?.payload?.success) {
                 dispatch(fetchCartItems(user?.id));
-                toast({
-                    title: "Product is added to cart",
-                });
+                toast.success(
+                     "Product is added to cart",
+                );
             }
         });
     }
