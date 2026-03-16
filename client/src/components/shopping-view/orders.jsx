@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Dialog } from "../ui/dialog";
-// import {
-//     Table,
-//     TableBody,
-//     TableCell,
-//     TableHead,
-//     TableHeader,
-//     TableRow,
-// } from "../ui/table";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "../ui/table";
 // import ShoppingOrderDetailsView from "./order-details";
 import { useDispatch, useSelector } from "react-redux";
 // import {
@@ -45,7 +45,7 @@ function ShoppingOrders() {
                 <CardTitle>Order History</CardTitle>
             </CardHeader>
             <CardContent>
-                {/* <Table>
+                <Table>
                     <TableHeader>
                         <TableRow>
                             <TableHead>Order ID</TableHead>
@@ -58,7 +58,7 @@ function ShoppingOrders() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {orderList && orderList.length > 0
+                        {/* {orderList && orderList.length > 0
                             ? orderList.map((orderItem) => (
                                 <TableRow>
                                     <TableCell>{orderItem?._id}</TableCell>
@@ -96,9 +96,9 @@ function ShoppingOrders() {
                                     </TableCell>
                                 </TableRow>
                             ))
-                            : null}
+                            : null} */}
                     </TableBody>
-                </Table> */}
+                </Table>
             </CardContent>
         </Card>
     );
