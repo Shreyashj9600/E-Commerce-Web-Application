@@ -21,7 +21,7 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { cartItems } = useSelector((state) => state.shopCart);
-  //   const { reviews } = useSelector((state) => state.shopReview);
+  // const { reviews } = useSelector((state) => state.shopReview);
 
   //   const { toast } = useToast();
 
@@ -170,26 +170,26 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
             <h2 className="text-xl font-bold mb-4">Reviews</h2>
             <div className="grid gap-6">
               {/* {reviews && reviews.length > 0 ? (
-                reviews.map((reviewItem) => ( */}
-              <div className="flex gap-4">
-                <Avatar className="w-10 h-10 border">
-                  <AvatarFallback>
-                    {/* {reviewItem?.userName[0].toUpperCase()} */}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="grid gap-1">
-                  <div className="flex items-center gap-2">
-                    {/* <h3 className="font-bold">{reviewItem?.userName}</h3> */}
+                reviews.map((reviewItem) => (
+                  <div className="flex gap-4">
+                    <Avatar className="w-10 h-10 border">
+                      <AvatarFallback>
+                        {reviewItem?.userName[0].toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="grid gap-1">
+                      <div className="flex items-center gap-2">
+                        <h3 className="font-bold">{reviewItem?.userName}</h3>
+                      </div>
+                      <div className="flex items-center gap-0.5">
+                        <StarRatingComponent rating={reviewItem?.reviewValue} />
+                      </div>
+                      <p className="text-muted-foreground">
+                        {reviewItem.reviewMessage}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-0.5">
-                    {/* <StarRatingComponent rating={reviewItem?.reviewValue} /> */}
-                  </div>
-                  <p className="text-muted-foreground">
-                    {/* {reviewItem.reviewMessage} */}
-                  </p>
-                </div>
-              </div>
-              {/* ))
+                ))
               ) : (
                 <h1>No Reviews</h1>
               )} */}

@@ -2,6 +2,7 @@ import { HousePlug, LogOut, Menu, ShoppingCart, UserCog, } from "lucide-react";
 import {
     Link,
     useNavigate,
+    useSearchParams,
 } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "../ui/sheet";
 import { Button } from "../ui/button";
@@ -18,7 +19,7 @@ import { fetchCartItems } from "@/store/shop/cart-slice";
 function MenuItems() {
     const navigate = useNavigate();
     //   const location = useLocation();
-    //   const [searchParams, setSearchParams] = useSearchParams();
+      const [searchParams, setSearchParams] = useSearchParams();
 
     function handleNavigate(getCurrentMenuItem) {
         sessionStorage.removeItem("filters");
@@ -90,12 +91,12 @@ function HeaderRightContent() {
                     <span className="sr-only">User cart</span>
                 </Button>
                 <UserCartWrapper
-                setOpenCartSheet={setOpenCartSheet}
-                cartItems={
-                    cartItems && cartItems.items && cartItems.items.length > 0
-                        ? cartItems.items
-                        : []                
-                }
+                    setOpenCartSheet={setOpenCartSheet}
+                    cartItems={
+                        cartItems && cartItems.items && cartItems.items.length > 0
+                            ? cartItems.items
+                            : []
+                    }
                 />
             </Sheet>
 
@@ -154,9 +155,9 @@ function ShoppingHeader() {
                 <div className="hidden lg:block">
                     <HeaderRightContent />
                 </div>
-                <div className="hidden lg:block">
+                {/* <div className="hidden lg:block">
                     <HeaderRightContent />
-                </div>
+                </div> */}
             </div>
         </header>
     );
