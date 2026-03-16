@@ -18,7 +18,7 @@ function UserCartWrapper({ cartItems, setOpenCartSheet }) {
           0
         )
       : 0;
-
+        
   return (
     <SheetContent className="sm:max-w-md ">
       <SheetHeader>

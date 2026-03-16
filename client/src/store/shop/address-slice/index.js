@@ -56,7 +56,7 @@ const addressSlice = createSlice({
     name: "address",
     initialState,
     reducers: {},
-    extraReducers: (builder) => {
+    extraReducers: (builder) => {                    
         builder         
             .addCase(addNewAddress.pending, (state) => {
                 state.isLoading = true;
@@ -67,7 +67,7 @@ const addressSlice = createSlice({
             .addCase(addNewAddress.rejected, (state) => {
                 state.isLoading = false;
             })
-            .addCase(fetchAllAddresses.pending, (state) => {
+            .addCase(fetchAllAddresses.pending, (state) => {         
                 state.isLoading = true;
             })
             .addCase(fetchAllAddresses.fulfilled, (state, action) => {
