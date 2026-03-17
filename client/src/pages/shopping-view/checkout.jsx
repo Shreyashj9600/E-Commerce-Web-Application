@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import UserCartItemsContent from "@/components/shopping-view/cart-items-content";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-// import { createNewOrder } from "@/store/shop/order-slice";
+import { createNewOrder } from "@/store/shop/order-slice";
 import { Navigate } from "react-router-dom";
 import UserCartItemsContent from "../../components/shopping-view/cart-item-content";
 // import { useToast } from "@/components/ui/use-toast";
@@ -12,7 +12,7 @@ import UserCartItemsContent from "../../components/shopping-view/cart-item-conte
 function ShoppingCheckout() {
   const { cartItems } = useSelector((state) => state.shopCart);
   const { user } = useSelector((state) => state.auth);
-//   const { approvalURL } = useSelector((state) => state.shopOrder);
+  const { approvalURL } = useSelector((state) => state.shopOrder);
   const [currentSelectedAddress, setCurrentSelectedAddress] = useState(null);
   const [isPaymentStart, setIsPaymemntStart] = useState(false);
   const dispatch = useDispatch();
@@ -82,8 +82,11 @@ function ShoppingCheckout() {
       payerId: "",
     };
 
+    console.log('orderData',orderData);
+    
+
     dispatch(createNewOrder(orderData)).then((data) => {
-      console.log(data, "sangam");
+      console.log(data, "shreyash");
       if (data?.payload?.success) {
         setIsPaymemntStart(true);
       } else {
@@ -92,9 +95,9 @@ function ShoppingCheckout() {
     });
   }
 
-//   if (approvalURL) {
-//     window.location.href = approvalURL;
-//   }
+  if (approvalURL) {
+    window.location.href = approvalURL;
+  }
 
   return (
     <div className="flex flex-col">
@@ -124,7 +127,7 @@ function ShoppingCheckout() {
                 ? "Processing Paypal Payment..."
                 : "Checkout with Paypal"}
             </Button>
-          </div>
+          </div> 
         </div>
       </div>
     </div>
