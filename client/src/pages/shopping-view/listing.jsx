@@ -22,10 +22,7 @@ import { useControllableState } from "radix-ui/internal";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-// import ProductDetailsDialog from "../../components/shopping-view/product-details";
-// import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useSearchParams } from "react-router-dom";
+ 
 
 function createSearchParamsHelper(filterParams) {
     const queryParams = [];
@@ -41,7 +38,7 @@ function createSearchParamsHelper(filterParams) {
     console.log(queryParams, "queryParams");
 
     return queryParams.join("&");
-}
+} 
 
 function ShoppingListing() {
     const dispatch = useDispatch();
