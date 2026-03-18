@@ -10,33 +10,33 @@ import {
     TableHeader,
     TableRow,
 } from "../ui/table";
-// import AdminOrderDetailsView from "./order-details";
+import AdminOrderDetailsView from "./order-details";
 import { useDispatch, useSelector } from "react-redux";
-// import {
-//     getAllOrdersForAdmin,
-//     getOrderDetailsForAdmin,
-//     resetOrderDetails,
-// } from "@/store/admin/order-slice";
+import {
+    getAllOrdersForAdmin,
+    getOrderDetailsForAdmin,
+    resetOrderDetails,
+} from "@/store/admin/order-slice";
 import { Badge } from "../ui/badge";
 
 function AdminOrdersView() {
     const [openDetailsDialog, setOpenDetailsDialog] = useState(false);
-    // const { orderList, orderDetails } = useSelector((state) => state.adminOrder);
+    const { orderList, orderDetails } = useSelector((state) => state.adminOrder);
     const dispatch = useDispatch();
 
     function handleFetchOrderDetails(getId) {
         dispatch(getOrderDetailsForAdmin(getId));
     }
 
-    // useEffect(() => {
-    //     dispatch(getAllOrdersForAdmin());
-    // }, [dispatch]);
+    useEffect(() => {
+        dispatch(getAllOrdersForAdmin());
+    }, [dispatch]);
 
-    // console.log(orderDetails, "orderList");
+    console.log(orderDetails, "orderList");
 
-    // useEffect(() => {
-    //     if (orderDetails !== null) setOpenDetailsDialog(true);
-    // }, [orderDetails]);
+    useEffect(() => {
+        if (orderDetails !== null) setOpenDetailsDialog(true);
+    }, [orderDetails]);
 
     return (
         <Card>
@@ -57,7 +57,7 @@ function AdminOrdersView() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {/* {orderList && orderList.length > 0
+                        {orderList && orderList.length > 0
                             ? orderList.map((orderItem) => (
                                 <TableRow>
                                     <TableCell>{orderItem?._id}</TableCell>
@@ -95,7 +95,7 @@ function AdminOrdersView() {
                                     </TableCell>
                                 </TableRow>
                             ))
-                            : null} */}
+                            : null}
                     </TableBody>
                 </Table>
             </CardContent>
