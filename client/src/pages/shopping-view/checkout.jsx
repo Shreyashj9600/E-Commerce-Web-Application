@@ -8,6 +8,7 @@ import { createNewOrder } from "@/store/shop/order-slice";
 import { Navigate } from "react-router-dom";
 import UserCartItemsContent from "../../components/shopping-view/cart-item-content";
 // import { useToast } from "@/components/ui/use-toast";
+import { toast } from "sonner";
 
 function ShoppingCheckout() {
   const { cartItems } = useSelector((state) => state.shopCart);
@@ -16,37 +17,39 @@ function ShoppingCheckout() {
   const [currentSelectedAddress, setCurrentSelectedAddress] = useState(null);
   const [isPaymentStart, setIsPaymemntStart] = useState(false);
   const dispatch = useDispatch();
-//   const { toast } = useToast();
+  //   const { toast } = useToast();
 
   console.log(currentSelectedAddress, "cartItems");
 
   const totalCartAmount =
     cartItems && cartItems.items && cartItems.items.length > 0
       ? cartItems.items.reduce(
-          (sum, currentItem) =>
-            sum +
-            (currentItem?.salePrice > 0
-              ? currentItem?.salePrice
-              : currentItem?.price) *
-              currentItem?.quantity,
-          0
-        )
+        (sum, currentItem) =>
+          sum +
+          (currentItem?.salePrice > 0
+            ? currentItem?.salePrice
+            : currentItem?.price) *
+          currentItem?.quantity,
+        0
+      )
       : 0;
 
   function handleInitiatePaypalPayment() {
+    console.log('btn is working ');
+
     if (cartItems.length === 0) {
-    //   toast({
-    //     title: "Your cart is empty. Please add items to proceed",
-    //     variant: "destructive",
-    //   });
+      toast.success(
+        "Your cart is empty. Please add items to proceed",
+        "destructive",
+      );
 
       return;
     }
     if (currentSelectedAddress === null) {
-    //   toast({
-    //     title: "Please select one address to proceed.",
-    //     variant: "destructive",
-    //   });
+      toast.success(
+        "Please select one address to proceed.",
+        "destructive",
+      );
 
       return;
     }
@@ -82,8 +85,8 @@ function ShoppingCheckout() {
       payerId: "",
     };
 
-    console.log('orderData',orderData);
-    
+    console.log('orderData', orderData);
+
 
     dispatch(createNewOrder(orderData)).then((data) => {
       console.log(data, "shreyash");
@@ -112,8 +115,8 @@ function ShoppingCheckout() {
         <div className="flex flex-col gap-4">
           {cartItems && cartItems.items && cartItems.items.length > 0
             ? cartItems.items.map((item) => (
-                <UserCartItemsContent cartItem={item} />
-              ))
+              <UserCartItemsContent cartItem={item} />
+            ))
             : null}
           <div className="mt-8 space-y-4">
             <div className="flex justify-between">
@@ -127,7 +130,7 @@ function ShoppingCheckout() {
                 ? "Processing Paypal Payment..."
                 : "Checkout with Paypal"}
             </Button>
-          </div> 
+          </div>
         </div>
       </div>
     </div>
